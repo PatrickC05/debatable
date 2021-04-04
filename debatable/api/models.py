@@ -13,8 +13,8 @@ def generateUrlId():
 class Post(models.Model):
     url_id = models.CharField(max_length=12, default=generateUrlId)
     poster = models.ForeignKey(User,on_delete=models.CASCADE, related_name='posts')
-    title = models.CharField(max_length=60, default='')
-    body = models.CharField(max_length=10000, default='')
+    title = models.CharField(max_length=60)
+    body = models.TextField(max_length=10000)
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
