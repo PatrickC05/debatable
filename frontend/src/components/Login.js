@@ -28,19 +28,19 @@ export default function Login() {
       })
     }
   }, [submitting])
-  
+
   function handleSubmit(e) {
     e.preventDefault();
     setSubmitting(true)
   }
 
   return (
-    <div>
-      {user ? <Redirect to='/'> </Redirect> : 
+    <div className="passwordbox">
+      {user ? <Redirect to='/'> </Redirect> :
         <form onSubmit={handleSubmit}>
-          <input type="text" placeholder="Username" onChange={(e)=>setUsername(e.target.value)} value={username}/>
-          <input type="password" placeholder="Password" onChange={(e)=>setPassword(e.target.value)} value={password} type="password" />
-          <input type="submit" value="Submit" disabled={submitting}/>
+          <input className="password" type="text" placeholder="Username" onChange={(e)=>setUsername(e.target.value)} value={username}/><br></br>
+          <input className="password" type="password" placeholder="Password" onChange={(e)=>setPassword(e.target.value)} value={password} type="password" /><br></br>
+          <input className="submitbutton2" type="submit" value="Submit" disabled={submitting}/>
         </form>}
     </div>
   )
