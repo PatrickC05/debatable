@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from rest_framework import generics
+from rest_framework import generics, permissions
 from .models import Post
 from .serializers import PostSerializer
 
@@ -26,5 +26,15 @@ class viewPosts(generics.ListAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
 
-# class createPost(generics.CreateAPIView)
-#     quer
+class createPost(generics.GenericAPIView):
+    serializer_class = PostSerializer
+    permission_classes = [
+        permissions.IsAuthenticated,
+    ]
+    def post(self, request):
+        data = request.data.copy()
+        data['poster'] = request.user.pk
+        serializer = self.get_serializer(data=data)
+        serializer.is_valid(raise_exception=True)
+        post = serializer.save()
+        return Response({"id":post.url_id})
