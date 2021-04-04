@@ -54,8 +54,8 @@ export default function Post() {
       <h1 className='title'>{content["title"]}</h1>
       <br></br>
       <p>{content["body"]}</p>
-      <p><button onClick={handleClick}>Agree</button>{vote["Agree"]}</p>
-      <p><button onClick={handleClick}>Disagree</button>{vote["Disagree"]}</p>
+      <p><button className="agree" onClick={handleClick}>Agree</button>{vote["Agree"]}</p>
+      <p><button className="disagree" onClick={handleClick}>Disagree</button>{vote["Disagree"]}</p>
     </div>
   )
 }
