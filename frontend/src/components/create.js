@@ -1,35 +1,13 @@
-class NameForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {value: ''};
+import React, { Component } from 'react'
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleChange(event) {
-    this.setState({value: event.target.value});
-  }
-
-  handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.value);
-    event.preventDefault();
-  }
-
+export default class Create extends Component {
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Name:
-          <input type="text" value={this.state.value} onChange={this.handleChange} />
-        </label>
-        <input type="submit" value="Submit" />
+      <form>
+        <input type="text" min="5" max="60" placeholder="Enter your title"/>
+        <textarea min="300" max="10000" placeholder="What is your opinion?"></textarea>
+        <input type="submit" value="Submit"/>
       </form>
-    );
+    )
   }
 }
-
-ReactDOM.render(
-  <NameForm />,
-  document.getElementById('root')
-);
