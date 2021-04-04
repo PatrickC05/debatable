@@ -19,3 +19,7 @@ def viewPost(request,id):
     post = Post.objects.get(url_id=id)
     serializer = PostSerializer(post)
     return Response(serializer.data)
+
+class viewPosts(generics.ListAPIView):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
