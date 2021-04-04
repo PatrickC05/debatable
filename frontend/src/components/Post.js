@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { UserContext } from "./UserContext";
-import { FiThumbsUp, FiThumbsDown } from 'react-icons/fi'
 import { useParams, Link } from 'react-router-dom';
 
 
