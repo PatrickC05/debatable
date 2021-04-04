@@ -36,7 +36,7 @@ export default function Login() {
   return (
     <form onSubmit={handleSubmit}>
       <input type="text" placeholder="Username" onChange={(e)=>setUsername(e.target.value)} value={username}/>
-      <input type="text" placeholder="Password" onChange={(e)=>setPassword(e.target.value)} value={password} type="password" />
+      <input type="password" placeholder="Password" onChange={(e)=>setPassword(e.target.value)} value={password} type="password" />
       <input type="submit" value="Submit" disabled={submitting}/>
     </form>
   )
