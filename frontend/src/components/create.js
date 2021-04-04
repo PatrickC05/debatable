@@ -40,7 +40,7 @@ export default function Create() {
       <form onSubmit={handleSubmit}>
         <input autofocus="autofocus" className="titlebox" type="text" min="5" max="60" placeholder="Enter your title" onChange={(e)=>setTitle(e.target.value)} value={title}/>
         <textarea className = "contentbox" min="300" max="10000" placeholder="Your opinion..."onChange={(e)=>setContent(e.target.value)} value={content}></textarea>
-        <input type="submit" value="Submit"/>
+        <input className="submitbutton" type="submit" value="Submit"/>
       </form>
       }
     </div>

@@ -47,6 +47,19 @@ textarea {
   margin-bottom: 16px;
   font-weight: bold;
 }
+
+.submitbutton{
+  color: #111111;
+  font: 16px, "Open Sans";
+  padding: 10px;
+  background: #999999;
+  border: 10px;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+}
+
 .click:hover {
   background-color: #161616;
 }
@@ -58,4 +71,17 @@ textarea {
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #444444;
   opacity: 1; /* Firefox */
+}
+header {
+  background-color: #DC143C;
+  height: 50px;
+  padding: 10px;
+}
+.navlink {
+  color: #ffffff;
+  font-size: 1em;
+  font: "Open Sans";
+  font-weight: bold;
+  margin-right: 20px;
+  align: right;
 }
