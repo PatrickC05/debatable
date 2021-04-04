@@ -23,7 +23,7 @@ export default function Post() {
 
   return (
     <div>
-      <h1>{content["title"]}</h1>
+      <h1 className='title'>{content["title"]}</h1>
       <br></br>
       <p>{content["body"]}</p>
       <p>{vote["Agree"]}</p>
