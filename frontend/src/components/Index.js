@@ -14,7 +14,7 @@ export default function Index() {
 
             {posts && posts.map((post) => {
                 return (
-                    <Link to={'/post/' + post['url_id']}>
+                    <Link to={'/post/' + post['url_id']} style={{ textDecoration: 'none' }}>
                         <div className="post">
                             <h1>{post['title']}</h1>
                             <p>{post['body'].substring(0,120)}</p>
