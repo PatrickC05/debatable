@@ -27,7 +27,7 @@ export default function Create() {
       })
     }
   }, [submitting])
-  
+
   function handleSubmit(e) {
     e.preventDefault();
     setSubmitting(true)
