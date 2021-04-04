@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { UserContext } from "./UserContext";
-import { FiThumbsUp, FiThumbsDown } from 'react-icons/fi'
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 
 export default function Post() {
@@ -27,16 +26,18 @@ export default function Post() {
   }, [])
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/vote/'+id, {
-      "method": "PUT",
-      "headers": {
-        'Content-Type': 'application/json',
-        'Authorization': 'Token '+user['token']
-      },
-      "body": JSON.stringify({'vote': myVote})
-    })
-    .then(res=>res.json())
-    .then(res=>setVote(res))
+    if (myVote != 0) {
+      fetch('http://127.0.0.1:8000/api/vote/'+id, {
+        "method": "PUT",
+        "headers": {
+          'Content-Type': 'application/json',
+          'Authorization': 'Token '+ user['token']
+        },
+        "body": JSON.stringify({'vote': myVote})
+      })
+      .then(res=>res.json())
+      .then(res=>setVote(res))
+    }
   }, [myVote])
 
   function handleClick(e) {
@@ -54,8 +55,9 @@ export default function Post() {
       <h1 className='title'>{content["title"]}</h1>
       <br></br>
       <p>{content["body"]}</p>
-      <p><button className="agree" onClick={handleClick}>Agree</button>{vote["Agree"]}</p>
-      <p><button className="disagree" onClick={handleClick}>Disagree</button>{vote["Disagree"]}</p>
+      <p>{vote["Agree"]}<button className="agree" onClick={handleClick}>Agree</button></p>
+      <p>{vote["Disagree"]}<button className="disagree" onClick={handleClick}>Disagree</button></p>
+      <p><Link to="/create"><button className="reply">Reply</button></Link></p>
     </div>
   )
 }
