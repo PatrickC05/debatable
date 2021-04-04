@@ -8,5 +8,5 @@ class PostSerializer(serializers.ModelSerializer):
 
 class VoteSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Post
+        model = Vote
         fields='__all__'
