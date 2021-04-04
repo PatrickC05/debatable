@@ -19,7 +19,7 @@ export default function Post() {
     fetch('http://127.0.0.1:8000/api/vote/'+id)
     .then(res => res.json())
     .then(res=>setVote(res))
-  })
+  }, [])
 
   return (
     <div>
