@@ -62,7 +62,6 @@ class getVote(generics.GenericAPIView):
                 vote_obj = Vote.objects.filter(post=post.id).get(voter=user.id)
                 serializer = self.get_serializer(vote_obj, data={'agree': vote==1}, partial=True)
             except Exception as e:
-                print(e)
                 serializer = self.get_serializer(data={'post': post.id, 'voter': user.id, 'agree': vote==1})
             serializer.is_valid(raise_exception=True)
             vote = serializer.save()

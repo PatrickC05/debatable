@@ -1,20 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
-import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import React, {useState} from 'react';
+import { Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
 import Create from './components/Create';
 import Login from './components/Login';
 import Register from './components/Register';
+import { UserContext } from "./components/UserContext";
 
 function App() {
+    const [user, setUser] = useState(null);
     return (
         <main>
             <Switch>
-                <Route path="/" component={Home} exact />
-                <Route path="/create" component={Create} />
-                <Route path="/login" component={Login} />
-                <Route path="/register" component={Register} />
+                <UserContext.Provider value={{user, setUser}}>
+                    <Route exact path="/" component={Home} />
+                    <Route exact path="/create" component={Create} />
+                    <Route exact path="/login" component={Login} />
+                    <Route exact path="/register" component={Register} />
+                </UserContext.Provider>
             </Switch>
         </main>
     )
