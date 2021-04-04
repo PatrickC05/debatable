@@ -14,12 +14,17 @@ def apiOverview(request):
     }
     return Response(api_urls)
 
-@api_view(['GET'])
-def viewPost(request,id):
-    post = Post.objects.get(url_id=id)
-    serializer = PostSerializer(post)
-    return Response(serializer.data)
+
+class viewPost(generics.ListAPIView):
+    serializer_class = PostSerializer
+
+    def get_queryset(self):
+        id = self.kwargs['id']
+        return Post.objects.filter(url_id=id)
 
 class viewPosts(generics.ListAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
+
+# class createPost(generics.CreateAPIView)
+#     quer
