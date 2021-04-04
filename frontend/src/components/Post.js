@@ -23,7 +23,7 @@ export default function Post() {
   }, [])
 
   return (
-    <div class='post'>
+    <div className='post'>
       <h1 className='title'>{content["title"]}</h1>
       <br></br>
       <p>{content["body"]}</p>
