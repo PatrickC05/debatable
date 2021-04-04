@@ -3,7 +3,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import generics, permissions
 from .models import Post
-from .serializers import PostSerializer
+from .serializers import PostSerializer, VoteSerializer
 
 
 @api_view(['GET'])
@@ -38,3 +38,10 @@ class createPost(generics.GenericAPIView):
         serializer.is_valid(raise_exception=True)
         post = serializer.save()
         return Response({"id":post.url_id})
+
+class getVote(generics.GenericAPIView):
+    serializer_class = VoteSerializer
+    def get(self, request, id):
+        post = Post.objects.get(url_id=id)
+        print(post)
+        return Response({"Agree": post.votes.filter(agree=True).count(), "Disagree": post.votes.filter(agree=False).count()})
