@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { FiThumbsUp, FiThumbsDown } from 'react-icons/fi'
 import { useParams } from 'react-router-dom';
 
 export default function Post() {
@@ -26,8 +27,8 @@ export default function Post() {
       <h1 className='title'>{content["title"]}</h1>
       <br></br>
       <p>{content["body"]}</p>
-      <p>{vote["Agree"]}</p>
-      <p>{vote["Disagree"]}</p>
+      <p>{vote["Agree"]}<FiThumbsUp /></p>
+      <p>{vote["Disagree"]} <FiThumbsDown /></p>
     </div>
   )
 }
