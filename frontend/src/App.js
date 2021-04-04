@@ -13,9 +13,9 @@ function App() {
     return (
         <div>
             <header>
-                <Link to="/">Home</Link>
-                <Link to="/login">Login</Link>
-                <Link to="/create">Create</Link>
+                <Link style={{ textDecoration: 'none', align: 'right'}} className="navlink" to="/">Home</Link>
+                <Link style={{ textDecoration: 'none', align: 'right'}} className="navlink" to="/login">Login</Link>
+                <Link style={{ textDecoration: 'none', align: 'right'}} className="navlink" to="/create">Create</Link>
             </header>
             <main>
                 <Switch>

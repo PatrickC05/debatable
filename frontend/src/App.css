@@ -72,3 +72,16 @@ textarea {
   color: #444444;
   opacity: 1; /* Firefox */
 }
+header {
+  background-color: #DC143C;
+  height: 50px;
+  padding: 10px;
+}
+.navlink {
+  color: #ffffff;
+  font-size: 1em;
+  font: "Open Sans";
+  font-weight: bold;
+  margin-right: 20px;
+  align: right;
+}
