@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Index() {
     const [posts, setPosts] = useState(null);
@@ -10,12 +11,15 @@ export default function Index() {
 
     return (
         <div>
+
             {posts && posts.map((post) => {
                 return (
-                    <div className="post">
-                        <h1>{post['title']}</h1>
-                        <p>{post['body'].substring(0,120)}</p>
-                    </div>
+                    <Link to={'/post/' + post['url_id']}>
+                        <div className="post">
+                            <h1>{post['title']}</h1>
+                            <p>{post['body'].substring(0,120)}</p>
+                        </div>
+                    </Link>
                 )
             })}
         </div>
