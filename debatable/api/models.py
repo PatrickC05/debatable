@@ -20,3 +20,7 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+class Vote(models.Model):
+    voter = models.ForeignKey(User, on_delete=models.CASCADE, related_name="votes")
+    post = models.ForeignKey('Post', on_delete=models.CASCADE, related_name="votes")
+    agree = models.BooleanField(null=False)
