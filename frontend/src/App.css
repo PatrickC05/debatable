@@ -33,6 +33,23 @@ h1 {
   margin-bottom: 16px;
   font-weight: bold;
 }
+.password {
+  color: #999999;
+  font: "Open Sans";
+  margin: auto;
+  width: 25%;
+  fill: none;
+  background: #111111;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  margin-left: 500px;
+  margin-top: 50px;
+  border-bottom: 3px #999999;
+  font-size: 2em;
+  font-weight: bold;
+}
+
 textarea {
   color: #999999;
   font: 16px, "Open Sans";
@@ -56,6 +73,20 @@ textarea {
   border: 10px;
   border-radius: 10px;
   border: none;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.submitbutton2{
+  color: #111111;
+  font: 16px, "Open Sans";
+  padding: 10px;
+  background: #999999;
+  border: 10px;
+  border-radius: 10px;
+  border: none;
+  margin-top: 50px;
+  margin-left: 640px;
   font-size: 16px;
   font-weight: bold;
 }
