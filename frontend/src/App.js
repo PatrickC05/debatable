@@ -11,11 +11,11 @@ import { UserContext } from "./components/UserContext";
 function App() {
     const [user, setUser] = useState(null);
     return (
-        <div>        
+        <div>
             <header>
                 <Link to="/">Home</Link>
                 <Link to="/login">Login</Link>
-                <Link to="create">Create</Link>
+                <Link to="/create">Create</Link>
             </header>
             <main>
                 <Switch>
