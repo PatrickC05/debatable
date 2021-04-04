@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { UserContext } from "./UserContext";
+import { Redirect } from 'react-router-dom'
 
 export default function Create() {
   const [title, setTitle] = useState('')
@@ -17,13 +18,13 @@ export default function Create() {
         },
         "body": JSON.stringify({
           "title": title,
-          "content": content
+          "body": content
         })
       })
       .then(res => res.json())
       .then(res=>{
-        setPost(res)
-        console.log(post)
+        setPost(res['id']);
+        <Redirect to={'/post/'+res['id']}></Redirect>
       })
     }
   }, [submitting])
@@ -34,10 +35,14 @@ export default function Create() {
   }
 
   return (
-    <form>
-      <input type="text" min="5" max="60" placeholder="Enter your title" onChange={(e)=>setTitle(e.target.value)} value={title}/>
-      <textarea min="300" max="10000" placeholder="What is your opinion?"onChange={(e)=>setContent(e.target.value)} value={content}></textarea>
-      <input type="submit" value="Submit"/>
-    </form>
+    <div>
+      {post ? <Redirect to={'/post/'+post}></Redirect> : 
+      <form onSubmit={handleSubmit}>
+        <input type="text" min="5" max="60" placeholder="Enter your title" onChange={(e)=>setTitle(e.target.value)} value={title}/>
+        <textarea min="300" max="10000" placeholder="What is your opinion?"onChange={(e)=>setContent(e.target.value)} value={content}></textarea>
+        <input type="submit" value="Submit"/>
+      </form>
+      }
+    </div>
   )
 }
