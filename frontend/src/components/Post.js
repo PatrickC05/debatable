@@ -3,8 +3,8 @@ import { useParams } from 'react-router-dom';
 
 export default function Post() {
   let {id} = useParams();
-  //let id = 'd2mdqh1aai_k'
   const [content, setContent] = useState('');
+  const [vote, setVote] = useState({"Agree":0, "Disagree":0})
 
   useEffect(()=>{
     fetch('http://127.0.0.1:8000/api/post/'+id, {
@@ -12,14 +12,22 @@ export default function Post() {
     .then(res => res.json())
       .then(res=>{
       setContent(res[0]);
-    })
+    });
   }, [])
+
+  useEffect(()=>{
+    fetch('http://127.0.0.1:8000/api/vote/'+id)
+    .then(res => res.json())
+    .then(res=>setVote(res))
+  })
 
   return (
     <div>
       <h1>{content["title"]}</h1>
       <br></br>
       <p>{content["body"]}</p>
+      <p>{vote["Agree"]}</p>
+      <p>{vote["Disagree"]}</p>
     </div>
   )
 }
