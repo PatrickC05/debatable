@@ -1,6 +1,6 @@
 import './App.css';
 import React, {useState} from 'react';
-import { Route, Switch, useParams } from 'react-router-dom';
+import { Route, Switch} from 'react-router-dom';
 import Home from './components/Home';
 import Create from './components/Create';
 import Login from './components/Login';
